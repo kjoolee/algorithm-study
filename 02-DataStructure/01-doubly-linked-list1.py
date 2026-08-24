@@ -1,3 +1,11 @@
+"""
+Doubly Linked List Implementation
+
+    - head node가 있는 경우 (원형 이중 연결 리스트)
+    - 공백 상태에서는 head node의 llink와 rlink가 head node를 가리킴
+    - 삽입, 삭제가 O(1) 시간에 가능
+"""
+
 class DListNode:
     def __init__(self, data=None):
         self.data = data

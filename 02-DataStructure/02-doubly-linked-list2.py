@@ -1,3 +1,11 @@
+"""
+Doubly Linked List Implementation
+
+    - head node가 없는 경우 
+
+"""
+
+
 class Node:
     def __init__(self, data):
         self.data = data
