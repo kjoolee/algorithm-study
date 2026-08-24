@@ -19,8 +19,12 @@ class DoublyLinkedList:
         self.tail = None
 
 
-    # 리스트의 맨 뒤에 삽입
+    # 리스트의 맨 앞에 삽입
     def insert(self, data):
+        pass
+
+    # 리스트의 맨 뒤에 삽입
+    def insert_last(self, data):
         new_node = Node(data)
 
         # 빈 리스트인 경우
@@ -34,6 +38,17 @@ class DoublyLinkedList:
         self.tail.next = new_node
         self.tail = new_node
 
+    # target_data를 가진 노드 뒤에 data를 가진 노드 삽입
+    def insert_after(self, target_data, data):
+        pass
+
+    # 리스트의 맨 앞 노드 삭제
+    def delete_first(self):
+        pass
+
+    # 리스트의 맨 뒤 노드 삭제
+    def delete_last(self):
+        pass
 
     # data를 가진 노드 삭제
     def delete(self, data):
@@ -64,29 +79,67 @@ class DoublyLinkedList:
             self.tail = current.prev
 
 
-    # 출력
-    def print_list(self):
-        current = self.head
+    # data 값을 가진 노드 검색
+    # 찾으면 해당 노드를 반환, 없으면 None 반환
+    def search(self, data):
+        pass
 
-        while current is not None:
-            print(current.data, end=" ")
-            current = current.next
+    # head부터 tail까지 순서대로 출력
+    def print_forward(self): 
+        pass
 
-        print()
+    # tail부터 head까지 순서대로 출력
+    def print_backward(self):
+        pass
+    
 
 if __name__ == '__main__':
 
+    # --------------------------------
+    # Test
+    # --------------------------------
+
     L = DoublyLinkedList()
 
-    L.insert(10)
-    L.insert(20)
-    L.insert(30)
-    L.insert(40)
+    # 삽입 테스트
+    L.insert_first(20)
+    L.insert_first(10)
+    L.insert_last(30)
+    L.insert_last(40)
 
-    L.print_list()
-    # 10 20 30 40
+    print("Forward:")
+    L.print_forward()
+    # 예상 결과: 10 20 30 40
 
-    L.delete(20)
+    print("Backward:")
+    L.print_backward()
+    # 예상 결과: 40 30 20 10
 
-    L.print_list()
-    # 10 30 40
+
+    # 중간 삽입 테스트
+    L.insert_after(20, 25)
+
+    print("After insert:")
+    L.print_forward()
+    # 예상 결과: 10 20 25 30 40
+
+
+    # 삭제 테스트
+    L.delete_first()
+    L.delete_last()
+    L.delete(25)
+
+    print("After delete:")
+    L.print_forward()
+    # 예상 결과: 20 30
+
+
+    # 탐색 테스트
+    node = L.search(30)
+
+    if node is not None:
+        print("Found:", node.data)
+    else:
+        print("Not found")
+
+    # 예상 결과: Found: 30
