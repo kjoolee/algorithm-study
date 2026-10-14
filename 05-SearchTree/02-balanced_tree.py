@@ -157,7 +157,5 @@ if __name__ == '__main__' :
         end_time = time.time()
     print(f'HASH Retrieval: {end_time-start_time} seconds')
 
-
     print(rb_tree.nlargest(10))
     print(rb_tree.max_item())
-    
